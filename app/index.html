@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Strip — GTA-style Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">SS</span>
+    <div>
+      <h1>Sunset Strip</h1>
+      <p>GTA-style cover maker · photos stay on your machine</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button id="undoBtn" type="button" title="Undo (Ctrl+Z)">↶ Undo</button>
+    <button id="redoBtn" type="button" title="Redo (Ctrl+Y)">↷ Redo</button>
+    <button id="exportBtn" class="primary" type="button">⬇ Export PNG</button>
+  </div>
+</header>
+<main class="workspace">
+  <section class="stage-wrap" id="stageWrap">
+    <canvas id="stage"></canvas>
+    <p class="hint">Click a panel to select it — drag to move its photo, scroll to zoom. Pick a thumbnail to fill the selected panel.</p>
+  </section>
+  <aside class="side">
+    <section class="card">
+      <h2>1 · Photos</h2>
+      <label class="file-btn">+ Add your photos
+        <input id="photoInput" type="file" accept="image/*" multiple hidden>
+      </label>
+      <div class="thumb-row" id="photoList"></div>
+      <div class="row">
+        <label for="panelPhoto" id="panelLabel">No panel selected</label>
+        <select id="panelPhoto"></select>
+      </div>
+      <button id="fillAllBtn" type="button" class="ghost">Fill every panel with the first photo</button>
+    </section>
+    <section class="card">
+      <h2>2 · Layout</h2>
+      <div class="picker" id="layoutPicker"></div>
+    </section>
+    <section class="card">
+      <h2>3 · Colour grade</h2>
+      <div class="picker" id="gradePicker"></div>
+    </section>
+    <section class="card">
+      <h2>4 · Caption</h2>
+      <label class="field">Title
+        <input id="titleInput" type="text" maxlength="24" value="SUNSET HEIST">
+      </label>
+      <label class="field">Subtitle
+        <input id="subtitleInput" type="text" maxlength="40" value="a vice city story">
+      </label>
+      <label class="field">Badge
+        <input id="badgeInput" type="text" maxlength="16" value="EST. 2026">
+      </label>
+    </section>
+    <section class="card">
+      <h2>5 · Post size</h2>
+      <div class="picker" id="sizePicker"></div>
+    </section>
+    <p class="status" id="statusLine">Offline app — nothing is uploaded. Export writes a PNG to your downloads.</p>
+  </aside>
+</main>
+<script type="module" src="./src/editor.js"></script>
+<script type="module" src="./src/shots.js"></script>
+</body>
+</html>
